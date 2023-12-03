@@ -26,7 +26,7 @@ WHERE sender_id = '2921-299-1929182' OR recipient_id = '2921-299-1929182';
 SELECT *
 FROM transactions
 WHERE (sender_id = '2921-299-1929182' OR recipient_id = '2921-299-1929182')
-AND timestamp > CURRENT_DATE - INTERVAL '30' DAY;
+AND timestamp > CURRENT_DATE - INTERVAL '30 DAYS';
 
 -- 6. Return any transactions with a status equal to “FAILED.”
 SELECT *
