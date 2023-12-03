@@ -59,7 +59,6 @@ For testing and demonstration purposes, the application uses the following hardc
 
 - **Username: testuser**
 - **Password: testuserpassword**
-- 
 > Note: In a real-world application, user credentials would be securely managed and stored, often in a database, and not hardcoded as they are in this project.
 
 ## Security Considerations
