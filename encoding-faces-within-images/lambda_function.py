@@ -1,16 +1,24 @@
-import os
+import boto3
+import io
 from PIL import Image
 import numpy as np
 
-def lambda_handler(event, context):
-    # Path to the local image file (adjust this to your file path)
-    file_path = 'images/african-woman-face.jpg'
+# Initialize the S3 client
+s3_client = boto3.client('s3')
 
-    # Open the file and keep it open for image operations
-    with open(file_path, 'rb') as file:
-        # Read the image
-        image = Image.open(file)
-        image.load()  # Explicitly load the image data
+def lambda_handler(event, context):
+    # Extract bucket name and file key from the event
+    # This assumes the Lambda function is triggered by an S3 event
+    bucket_name = event['Records'][0]['s3']['bucket']['name']
+    file_key = event['Records'][0]['s3']['object']['key']
+
+    # Get the file from S3
+    file_obj = s3_client.get_object(Bucket=bucket_name, Key=file_key)
+    file_content = file_obj['Body'].read()
+
+    # Read the image with Pillow
+    image = Image.open(io.BytesIO(file_content))
+    image.load()  # Explicitly load the image data
 
     # Encode the image
     encoded_vector = encode_image(image)
@@ -29,12 +37,3 @@ def encode_image(image):
     vector = image_array.flatten()
 
     return vector
-
-if __name__ == "__main__":
-    # Simulate event and context
-    event = {}
-    context = {}
-
-    # Call the lambda_handler function
-    result = lambda_handler(event, context)
-    print("Encoded Vector:", result)
