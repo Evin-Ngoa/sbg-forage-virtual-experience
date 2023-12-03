@@ -10,4 +10,4 @@ This project is a Spring Boot application that implements JWT-based authenticati
 
 ## Task 2:
 - Python script designed to be deployed as an AWS Lambda function.
-- [Lambda Function](https://github.com/Evin-Ngoa/sbg-forage-virtual-experience/tree/main/auth-service/) Repository 
+- [Lambda Function](https://github.com/Evin-Ngoa/sbg-forage-virtual-experience/tree/main/encoding-faces-within-images/) Repository 
