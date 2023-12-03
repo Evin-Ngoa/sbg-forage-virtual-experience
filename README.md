@@ -18,3 +18,7 @@
 ## Task 4:
 - Create a personalized view using above SQL query in a django application
 - [Django](https://github.com/Evin-Ngoa/sbg-forage-virtual-experience/tree/main/dashboardmbservice/) Repository 
+
+
+## Other 
+![Certificate](./certificate/JPMC-Certificate.png)
